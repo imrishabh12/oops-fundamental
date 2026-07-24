@@ -114,7 +114,7 @@ public class prac_ques{
 
 
 
-
+/*
 //Q4. Create a class SeriesCalculator with a method calculateSum(int n) to calculate
 // the sum of the first n numbers in the series 1 + 3 + 5 + 7 + ....
 // Use the formula Sum = (n/2) * [2*a + (n-1)*d], where "a" is the first term and "d"
@@ -134,12 +134,81 @@ public class prac_ques{
         System.out.println("the sum of the series is : " + sum);
     }
 }
+*/
 
 
 
 
 
 
+
+/*
+//Q5))Create a class Biggest that contains a single-dimensional array as a data member
+// and a method display() to find and display the largest element of the array.
+class Biggest{
+    int arr[]={10,45,20,90,5};
+    void display(){
+        int max = arr[0];
+        for(int i=0;i<arr.length;i++){
+            if(arr[i] > max){
+                max = arr[i];
+            }
+        }
+        System.out.println("the largest element is : " + max);
+    }
+}
+public class prac_ques{
+    static void main(){
+        Biggest ob1 = new Biggest();
+        ob1.display();
+    }
+}
+/*
+ */
+
+
+
+
+
+//Q5 b))Q. Create a class Smallest that contains a single-dimensional array as a
+// data member and a method display() to find and display the smallest element of
+// the array.
+/*
+class Smallest{
+    int arr[]= {10,45,20,90,5};
+    void display(){
+        int min = arr[0];
+        for(int i = 0; i<arr.length; i++){
+            if(arr[i] < min ){
+                min = arr[i];
+
+            }
+        }
+        System.out.println("the smallest element is : " + min);
+    }
+}
+public class prac_ques{
+    static void main(){
+        Smallest ob2 = new Smallest();
+        ob2.display();
+    }
+}
+*/
+
+
+
+
+
+
+
+
+//Q6)) Create a class Rectangle with attributes length and width, each defaulting to 1.
+// The class should include set and get methods for both attributes, and a method to
+// calculate the area of the rectangle.
+class Rectangle{
+    double length=1;
+    double width=1;
+}
 
 
 
