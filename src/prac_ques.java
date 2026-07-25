@@ -141,7 +141,7 @@ public class prac_ques{
 
 
 
-
+//VVIQ
 /*
 //Q5))Create a class Biggest that contains a single-dimensional array as a data member
 // and a method display() to find and display the largest element of the array.
@@ -201,14 +201,274 @@ public class prac_ques{
 
 
 
-
+//VVIQ
+/*
 //Q6)) Create a class Rectangle with attributes length and width, each defaulting to 1.
 // The class should include set and get methods for both attributes, and a method to
 // calculate the area of the rectangle.
 class Rectangle{
-    double length=1;
-    double width=1;
+    private int length=1;
+    private int width=1;
+
+    public int getLength(){
+        return length;
+    }
+
+    public int getWidth(){
+        return width;
+    }
+
+    public void setLength(int length){
+        this.length = length;
+    }
+
+    public void setWidth(int width){
+        this.width = width;
+    }
+
+    public int calcarea(){
+        return length * width;
+    }
 }
+public class prac_ques{
+    static void main(){
+        Rectangle ob1 = new Rectangle();
+        ob1.setLength(10);
+        ob1.setWidth(12);
+        int area = ob1.calcarea();
+        System.out.println("area of rect is : " + area);
+    }
+}
+*/
+
+
+
+
+
+
+
+/*
+//Method Overriding (toString())-->> this is new concept
+//VVIQ
+//Q7))Create a class Person with firstName and lastName as data members.
+// Override the toString() method to return the full name of the person.
+// Define constructors to take appropriate parameters.
+class Person{
+    String firstName;
+    String lastName;
+
+    Person(String firstName, String lastName){///here im using const for proper parameter
+        this.firstName= firstName;
+        this.lastName = lastName;
+    }
+    @Override
+    public String toString(){
+        return firstName + " " + lastName;
+    }
+
+}
+public class prac_ques{
+    static void main(){
+        Person p1 = new Person("Rishabh", "Kumar");
+        System.out.println(p1);
+    }
+}
+*/
+
+
+
+
+
+
+/*
+//VVIQ
+//ive to create multiple instances--> means ive to use constructors
+//Q8)). Create a Student class with name, rollNo, and marks as attributes.
+// Write a method to calculate the grade based on the marks and display the grade.
+// Create multiple instances of the Student class and print their grades.
+class Studentt{
+    String name;
+    int roll;
+    double marks;
+
+    Studentt(String name, int roll, double marks){
+        this.name = name;
+        this.roll = roll;
+        this.marks = marks;
+    }
+
+    String calcGrade(){
+        if(marks>=90){
+            return "A";
+        }
+
+        else if(marks>=80){
+            return "B";
+        }
+
+        else if(marks>=70){
+            return "C";
+        }
+
+        else if(marks>=60){
+            return "D";
+        }
+
+        else{
+            return "F";
+        }
+    }
+
+    void display(){
+        System.out.println("Name : " + name);
+        System.out.println("Roll : " + roll);
+        System.out.println("Marks :" + marks);
+        System.out.println("So the grade is : " + calcGrade());
+    }
+
+}
+public class prac_ques {
+    static void main() {
+        Studentt s1 = new Studentt("Nishant", 15, 55);
+        s1.display();
+    }
+}
+*/
+
+
+
+
+
+
+
+
+
+/*
+//Q9. Write a program to accept three numbers and find the largest of the three
+// using method overloading.
+class Studentt{
+
+    int  largest(int a, int b){
+        if(a>b){
+            return a;
+        }
+        else{
+            return b;
+        }
+
+
+    }
+    int largest(int a, int b, int c){
+        if((a>b) && (a>c)){
+            return a;
+        } else if ((b>a) && (b>c)) {
+            return b;
+        }
+        else{
+            return c;
+        }
+
+    }
+}
+public class prac_ques {
+    static void main() {
+        Studentt s2 = new Studentt();
+        int m1 = s2.largest(18,27);
+        System.out.println(m1);
+
+        int m2 = s2.largest(18,5,20);
+        System.out.println(m2);
+
+    }
+}
+*/
+
+
+
+
+
+
+/*
+//Q10.) Write a program to accept a number and display its last digit in words
+// using a method in a class.
+
+class Number{
+    String lastDig(int num){///taking string bcz return type is string not int
+        int lastt = num%10;
+        if (lastt == 0){
+            return "zero";
+        }
+        else if (lastt == 1){
+            return "one";
+        }
+        else if (lastt == 2){
+            return "two";
+        }
+        else if (lastt == 3){
+            return "three";
+        }
+        else if (lastt == 4){
+            return "four";
+        }
+        else if (lastt == 5){
+            return "five";
+        }
+        else if (lastt == 6){
+            return "six";
+        }
+        else if (lastt == 7){
+            return "seven";
+        }
+        else if (lastt == 8){
+            return "eight";
+        }
+        else if (lastt == 9){
+            return "nine";
+        }
+        else{
+            return "invalid";
+        }
+    }
+}
+public class prac_ques {
+    public static void main(String[] args){
+        Number s2 = new Number();
+        String number = s2.lastDig(1569);
+        System.out.println(number);
+    }
+
+}
+*/
+
+
+
+
+
+
+
+
+
+
+
+//Q11.)) Create a program that keeps track of the number of objects created and displays
+// the count in a function called display().
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
