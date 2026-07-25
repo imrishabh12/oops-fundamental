@@ -449,9 +449,34 @@ public class prac_ques {
 
 
 
-
+///VIQ
 //Q11.)) Create a program that keeps track of the number of objects created and displays
 // the count in a function called display().
+/*
+class Studentt{
+    static int count = 0;/// very imp point it should be static so that different
+                        ///count variable don't initialise
+    Studentt(){
+        count++;
+
+    }
+    void display(){
+        System.out.println("object count is : "+ count);
+    }
+}
+public class prac_ques{
+    static void main(){
+        Studentt s1 = new Studentt();
+        Studentt s2 = new Studentt();
+        Studentt s3 = new Studentt();
+        Studentt s4 = new Studentt();
+
+        s4.display();
+
+    }
+}
+
+ */
 
 
 
@@ -459,6 +484,208 @@ public class prac_ques {
 
 
 
+
+//Q12. Write a program to accept a student’s name and three marks.
+//Calculate the total and average, and display the result using a class and object
+/*
+class StudentDetails{
+    String name;
+    int mark1;
+    int mark2;
+    int mark3;
+
+    StudentDetails(String name,int mark1,int mark2,int mark3){
+        this.name = name;
+        this.mark1 = mark1;
+        this.mark2 = mark2;
+        this.mark3 = mark3;
+
+    }
+
+    int calculateTotal(){
+        return mark1 + mark2 + mark3;
+    }
+
+    double calculateAverage(){
+        return calculateTotal()/3.0;
+    }
+
+    void display(){
+        System.out.println("Name : " + name);
+        System.out.println("Total : " + calculateTotal());
+        System.out.println("Average : " + calculateAverage());
+    }
+
+}
+public class prac_ques{
+    static void main(){
+        StudentDetails s1 = new StudentDetails("Rishu",91, 97,94);
+        s1.display();
+    }
+}
+*/
+
+
+
+
+
+
+
+
+
+
+
+//Q13. Create a class Car with attributes make, model, and year. The class should
+// have a method displayDetails() that prints the details of the car.
+// Include a constructor to initialize these attributes. Create an instance of the Car
+// class and display its details.
+    /*
+class Carrr{
+    String make;
+    String model;
+    int year;
+
+    Carrr(String make, String model, int year){
+        this.make=make;
+        this.model=model;
+        this.year=year;
+    }
+
+    void displayDetails() {
+        System.out.println("Make : " + make);
+        System.out.println("Model : " + model);
+        System.out.println("Year : " + year);
+
+    }
+
+}
+public class prac_ques {
+
+    public static void main(String[] args) {
+        Carrr c1 = new Carrr("Toyota", "Fortuner", 2023);
+        c1.displayDetails();
+    }
+
+}
+
+     */
+
+
+
+
+
+
+
+/*
+//Q14. Create a class BankAccount with members AcctNo, balance, and AcctType.
+// Implement the following operations:
+//Deposit an amount of 10,000.
+//Withdraw an amount of 5,000.
+//Display account details.
+
+class BankAccount{
+    int acctNo;
+    double balance;
+    String acctType;
+
+    BankAccount(int acctNo, double balance, String acctType) {
+        this.acctNo = acctNo;
+        this.balance = balance;
+        this.acctType = acctType;
+
+    }
+
+    void deposit(double amount) {//deposit means balance will increase
+        balance = balance + amount;
+    }
+
+    void withdraw(double amount) {
+        balance = balance - amount;
+    }
+
+    void display() {
+        System.out.println("Account Number : " + acctNo);
+        System.out.println("Account Type   : " + acctType);
+        System.out.println("Balance        : " + balance);
+    }
+
+}
+public class prac_ques {
+    public static void main(String[] args) {
+        BankAccount obj = new BankAccount(101, 50000, "Savings");
+        obj.deposit(10000);
+        obj.withdraw(5000);
+        obj.display();
+    }
+}
+*/
+
+
+
+
+
+
+
+
+///vvvvIQ
+//Q15. Create an abstract class Shape with abstract methods calculateArea() and
+// calculatePerimeter(). Then, implement two subclasses Rectangle and Circle.
+// The Rectangle class should have attributes for length and width, and the Circle
+// class should have an attribute for radius. Both subclasses should implement the
+// abstract methods to calculate the area and perimeter.
+// Write a program to create instances of both classes, set their attributes, and
+// display their area and perimeter.
+abstract class Shape{
+    abstract double calculateArea();
+    abstract double calculatePerimeter();
+}
+class Rectangle extends Shape{
+    double length;
+    double width;
+
+    Rectangle(double length, double width){
+        this.length = length;
+        this.width = width;
+    }
+
+    @Override/// overriding abstract method
+    double calculateArea() {
+        return length * width;
+    }
+
+    @Override/// again overring 1 more abs mathod
+    double calculatePerimeter() {
+        return 2 * (length + width);
+    }
+}
+class Circle extends Shape{
+    double radius;
+
+    Circle(double radius){
+        this.radius = radius;
+    }
+
+    @Override
+    double calculateArea() {
+        return Math.PI * radius * radius;
+    }
+
+    @Override
+    double calculatePerimeter() {
+        return 2 * Math.PI * radius;
+    }
+}
+public class prac_ques {
+    public static void main(String[] args) {
+        Rectangle r = new Rectangle(10,5);
+        Circle c = new Circle(7);
+        System.out.println("Rectangle Area = " + r.calculateArea());
+        System.out.println("Rectangle Perimeter = " + r.calculatePerimeter());
+        System.out.println();
+        System.out.println("Circle Area = " + c.calculateArea());
+        System.out.println("Circle Perimeter = " + c.calculatePerimeter());
+    }
+}
 
 
 
