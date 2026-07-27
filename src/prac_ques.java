@@ -626,7 +626,7 @@ public class prac_ques {
 
 
 
-
+/*
 ///vvvvIQ
 //Q15. Create an abstract class Shape with abstract methods calculateArea() and
 // calculatePerimeter(). Then, implement two subclasses Rectangle and Circle.
@@ -686,7 +686,94 @@ public class prac_ques {
         System.out.println("Circle Perimeter = " + c.calculatePerimeter());
     }
 }
+*/
 
+
+
+
+
+
+
+
+
+
+
+//Q16))use all oops concept
+
+
+
+// Interface
+interface Vehicle {
+    void start();
+}
+
+// Abstract Class
+abstract class Person {
+    abstract void work();
+}
+
+// Parent Class (Encapsulation)
+class Employee extends Person implements Vehicle {
+
+    // Private data (Encapsulation)
+    private String name;
+    private int salary;
+
+    // Constructor
+    Employee(String name, int salary) {
+        this.name = name;
+        this.salary = salary;
+    }
+
+    // Getters
+    public String getName() {
+        return name;
+    }
+
+    public int getSalary() {
+        return salary;
+    }
+
+    // Implementing Interface Method
+    @Override
+    public void start() {
+        System.out.println(name + " starts the vehicle.");
+    }
+
+    // Implementing Abstract Method
+    @Override
+    void work() {
+        System.out.println(name + " is working.");
+    }
+}
+
+// Child Class (Inheritance)
+class Developer extends Employee {
+
+    Developer(String name, int salary) {
+        super(name, salary);
+    }
+
+    // Method Overriding (Runtime Polymorphism)
+    @Override
+    void work() {
+        System.out.println(getName() + " is writing Java code.");
+    }
+}
+
+// Main Class
+public class prac_ques {
+    public static void main(String[] args) {
+
+        Employee emp = new Developer("Rishabh", 50000);
+
+        emp.work();          // Polymorphism
+        emp.start();         // Interface Method
+
+        System.out.println("Name: " + emp.getName());
+        System.out.println("Salary: " + emp.getSalary());
+    }
+}
 
 
 
