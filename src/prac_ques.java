@@ -701,7 +701,7 @@ public class prac_ques {
 //Q16))use all oops concept
 
 
-
+/*
 // Interface
 interface Vehicle {
     void start();
@@ -775,10 +775,100 @@ public class prac_ques {
     }
 }
 
+*/
 
 
 
 
+
+
+
+
+
+
+
+
+VVVVVVVIQQQ
+//Q17))  use all oops concept + arraylist
+
+import java.util.ArrayList;
+
+// Interface
+interface Vehicle {
+    void start();
+}
+
+// Abstract Class
+abstract class Person {
+    abstract void work();
+}
+
+// Parent Class
+class Employee extends Person implements Vehicle {
+
+    private String name;
+    private int salary;
+
+    Employee(String name, int salary) {
+        this.name = name;
+        this.salary = salary;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getSalary() {
+        return salary;
+    }
+
+    @Override
+    public void start() {
+        System.out.println(name + " starts the vehicle.");
+    }
+
+    @Override
+    void work() {
+        System.out.println(name + " is working.");
+    }
+}
+
+// Child Class
+class Developer extends Employee {
+
+    Developer(String name, int salary) {
+        super(name, salary);
+    }
+
+    @Override
+    void work() {
+        System.out.println(getName() + " is writing Java code.");
+    }
+}
+
+// Main Class
+public class prac_ques {
+    public static void main(String[] args) {
+
+        // ArrayList of Employee objects
+        ArrayList<Employee> employees = new ArrayList<>();
+
+        employees.add(new Developer("Rishabh", 50000));
+        employees.add(new Developer("Rahul", 60000));
+        employees.add(new Developer("Amit", 55000));
+
+        // Display details
+        for (Employee emp : employees) {
+            emp.work();          // Runtime Polymorphism
+            emp.start();
+
+            System.out.println("Name   : " + emp.getName());
+            System.out.println("Salary : " + emp.getSalary());
+
+            System.out.println("----------------------");
+        }
+    }
+}
 
 
 
