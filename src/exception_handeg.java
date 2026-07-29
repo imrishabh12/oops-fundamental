@@ -116,7 +116,7 @@ public class exception_handeg {
 
 
 
-
+/*
 //eg5)) throws keyword-->used in method/func to indicate that it may throw exception
 public class exception_handeg{
     public static void excepeg(int a, int b) throws ArithmeticException{
@@ -127,8 +127,52 @@ public class exception_handeg{
     }
 }
 
+ */
 
 
+
+
+
+
+
+
+
+
+
+//Q1 use all keywords--> just for practice
+class Voting {
+
+    // throws keyword
+    static void checkAge(int age) throws Exception {
+
+        // throw keyword
+        if (age < 18) {
+            throw new Exception("Not eligible to vote.");
+        }
+
+        System.out.println("Eligible to vote.");
+    }
+}
+
+public class exception_handeg {
+
+    public static void main(String[] args) {
+
+        try {
+            Voting.checkAge(16);   // Change to 20 and see the difference
+        }
+
+        // catch keyword
+        catch (Exception e) {
+            System.out.println("Exception: " + e.getMessage());
+        }
+
+        // finally keyword
+        finally {
+            System.out.println("Program ended.");
+        }
+    }
+}
 
 
 

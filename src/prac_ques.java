@@ -788,7 +788,7 @@ public class prac_ques {
 
 
 
-VVVVVVVIQQQ
+//VVVVVVVIQQQ
 //Q17))  use all oops concept + arraylist
 
 import java.util.ArrayList;
