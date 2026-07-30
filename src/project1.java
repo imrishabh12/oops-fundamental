@@ -54,10 +54,7 @@
 //* Validate all user inputs wherever necessary.
 //* Display meaningful messages for every transaction and invalid operation.
 
-
-
-
-
+/*
 import java.util.Scanner;
 
 class ATM {
@@ -175,5 +172,146 @@ public class project1 {
 
         ATM atm = new ATM();
         atm.checkPin();
+    }
+}
+
+
+ */
+
+
+
+
+
+
+
+
+
+
+
+//project 2-->oops + exception handling
+//Problem Statement
+//
+//Create a Bank Account Management System in Java.
+//
+//The program should:
+//
+//Create a bank account with an account holder's name and initial balance.
+//Allow users to:
+//Deposit money
+//Withdraw money
+//Check balance
+//If the withdrawal amount is greater than the available balance, throw a custom exception named InsufficientBalanceException.
+//If the user enters a negative amount for deposit or withdrawal, throw an IllegalArgumentException.
+//Handle all exceptions using try-catch.
+//Display a message from the finally block after every transaction.
+//Use encapsulation by keeping account details private.
+//Demonstrate inheritance by creating a SavingsAccount class that extends BankAccount.
+//Demonstrate method overriding by overriding the displayAccountType() method.
+import java.util.Scanner;
+
+// Custom Exception
+class InsufficientBalanceException extends Exception {
+
+    public InsufficientBalanceException(String message) {
+        super(message);
+    }
+}
+
+// Parent Class
+class BankAccount {
+
+    private String accountHolder;
+    private double balance;
+
+    public BankAccount(String accountHolder, double balance) {
+        this.accountHolder = accountHolder;
+        this.balance = balance;
+    }
+
+    public void deposit(double amount) {
+
+        if (amount <= 0)
+            throw new IllegalArgumentException("Deposit amount must be positive.");
+
+        balance += amount;
+        System.out.println("Deposited : " + amount);
+    }
+
+    public void withdraw(double amount) throws InsufficientBalanceException {
+
+        if (amount <= 0)
+            throw new IllegalArgumentException("Withdrawal amount must be positive.");
+
+        if (amount > balance)
+            throw new InsufficientBalanceException("Insufficient Balance.");
+
+        balance -= amount;
+        System.out.println("Withdrawn : " + amount);
+    }
+
+    public void showBalance() {
+        System.out.println("Current Balance : " + balance);
+    }
+
+    public void displayAccountType() {
+        System.out.println("Normal Bank Account");
+    }
+}
+
+// Child Class
+class SavingsAccount extends BankAccount {
+
+    public SavingsAccount(String accountHolder, double balance) {
+        super(accountHolder, balance);
+    }
+
+    @Override
+    public void displayAccountType() {
+        System.out.println("Savings Account");
+    }
+}
+
+// Main Class
+public class project1 {
+
+    public static void main(String[] args) {
+
+        SavingsAccount account = new SavingsAccount("Rishabh", 10000);
+
+        Scanner sc = new Scanner(System.in);
+
+        account.displayAccountType();
+
+        try {
+
+            System.out.print("Enter amount to deposit: ");
+            double deposit = sc.nextDouble();
+            account.deposit(deposit);
+
+            System.out.print("Enter amount to withdraw: ");
+            double withdraw = sc.nextDouble();
+            account.withdraw(withdraw);
+
+            account.showBalance();
+
+        }
+
+        catch (InsufficientBalanceException e) {
+            System.out.println("Custom Exception : " + e.getMessage());
+        }
+
+        catch (IllegalArgumentException e) {
+            System.out.println("Invalid Input : " + e.getMessage());
+        }
+
+        catch (Exception e) {
+            System.out.println("Unexpected Error : " + e.getMessage());
+        }
+
+        finally {
+            System.out.println("Transaction Finished.");
+        }
+
+        sc.close();
     }
 }
