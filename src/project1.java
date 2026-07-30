@@ -191,24 +191,63 @@ public class project1 {
 //project 2-->oops + exception handling
 //Problem Statement
 //
-//Create a Bank Account Management System in Java.
+//Problem Statement
 //
-//The program should:
+//Create a Java program to implement a Bank Account Management System using Object-Oriented Programming (OOP) concepts and Exception Handling.
 //
-//Create a bank account with an account holder's name and initial balance.
-//Allow users to:
-//Deposit money
-//Withdraw money
-//Check balance
-//If the withdrawal amount is greater than the available balance, throw a custom exception named InsufficientBalanceException.
-//If the user enters a negative amount for deposit or withdrawal, throw an IllegalArgumentException.
-//Handle all exceptions using try-catch.
-//Display a message from the finally block after every transaction.
-//Use encapsulation by keeping account details private.
-//Demonstrate inheritance by creating a SavingsAccount class that extends BankAccount.
-//Demonstrate method overriding by overriding the displayAccountType() method.
-import java.util.Scanner;
+//Requirements:
+//
+//1. Create a class named BankAccount with the following private data members:
+//   - Account Holder Name
+//   - Account Number
+//   - Balance
+//
+//2. Use encapsulation by keeping all data members private and providing appropriate methods to access or modify them.
+//
+//3. Create a constructor to initialize the account holder's name, account number, and initial balance.
+//
+//4. Create a child class named SavingsAccount that extends the BankAccount class.
+//
+//5. Override a method named displayAccountType() in the SavingsAccount class to display the account type.
+//
+//6. Implement the following methods in the BankAccount class:
+//   - deposit(double amount)
+//   - withdraw(double amount)
+//   - showBalance()
+//
+//7. If the user enters a deposit or withdrawal amount less than or equal to zero, throw an IllegalArgumentException.
+//
+//8. If the withdrawal amount is greater than the available balance, create and throw a custom exception named InsufficientBalanceException.
+//
+//9. Handle all exceptions using try-catch blocks and display appropriate error messages.
+//
+//10. Use a finally block to display a transaction completion message after every operation.
+//
+//11. In the main() method:
+//    - Create an object of the SavingsAccount class.
+//    - Accept the deposit and withdrawal amounts from the user using Scanner.
+//    - Perform the deposit and withdrawal operations.
+//    - Display the updated account balance.
+//
+//Concepts to be Used:
+//- Class and Object
+//- Encapsulation
+//- Constructor
+//- Inheritance
+//- Method Overriding (Runtime Polymorphism)
+//- Custom Exception
+//- throw
+//- throws
+//- try
+//- catch
+//- finally
+//- Scanner Class
 
+
+
+
+/*
+import java.util.*;
 // Custom Exception
 class InsufficientBalanceException extends Exception {
 
@@ -310,6 +349,187 @@ public class project1 {
 
         finally {
             System.out.println("Transaction Finished.");
+        }
+
+        sc.close();
+    }
+}
+
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//project 3 --> another eg
+//Problem Statement:
+//
+//Create an Online Shopping Cart System using Java that demonstrates both Object-Oriented Programming (OOP) concepts and Exception Handling.
+//
+//Requirements:
+//
+//1. Create a class named Product with the following private data members:
+//   - Product ID
+//   - Product Name
+//   - Price
+//   - Stock Quantity
+//
+//2. Use encapsulation by keeping all data members private and providing appropriate methods to access or modify them when required.
+//
+//3. Create a child class named Electronics that extends the Product class.
+//
+//4. Override a method named displayCategory() in the Electronics class to display the product category.
+//
+//5. Create a ShoppingCart class that allows a customer to purchase products.
+//
+//6. If the customer enters a quantity less than or equal to zero, throw an IllegalArgumentException.
+//
+//7. If the customer tries to purchase more items than are available in stock, create and throw a custom exception named OutOfStockException.
+//
+//8. Handle all exceptions using try-catch blocks and display appropriate error messages.
+//
+//9. Use a finally block to display a thank-you message after every transaction.
+//
+//10. In the main() method:
+//    - Create an Electronics object.
+//    - Accept the purchase quantity from the user using Scanner.
+//    - Purchase the product through the ShoppingCart object.
+//    - Display the remaining stock after a successful purchase.
+//
+//Concepts to be Used:
+//- Class and Object
+//- Encapsulation
+//- Constructor
+//- Inheritance
+//- Method Overriding (Runtime Polymorphism)
+//- Custom Exception
+//- throw
+//- throws
+//- try
+//- catch
+//- finally
+//- Scanner Class
+
+import java.util.Scanner;
+
+// Custom Exception
+class OutOfStockException extends Exception {
+    public OutOfStockException(String message) {
+        super(message);
+    }
+}
+
+// Parent Class
+class Product {
+
+    private int id;
+    private String name;
+    private double price;
+    private int stock;
+
+    public Product(int id, String name, double price, int stock) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.stock = stock;
+    }
+
+    public void purchase(int quantity) throws OutOfStockException {
+
+        if (quantity <= 0)
+            throw new IllegalArgumentException("Quantity must be greater than zero.");
+
+        if (quantity > stock)
+            throw new OutOfStockException("Only " + stock + " item(s) available.");
+
+        stock -= quantity;
+
+        System.out.println(quantity + " " + name + "(s) purchased.");
+        System.out.println("Total Price = ₹" + (price * quantity));
+    }
+
+    public void displayCategory() {
+        System.out.println("General Product");
+    }
+
+    public int getStock() {
+        return stock;
+    }
+}
+
+// Child Class
+class Electronics extends Product {
+
+    public Electronics(int id, String name, double price, int stock) {
+        super(id, name, price, stock);
+    }
+
+    @Override
+    public void displayCategory() {
+        System.out.println("Category : Electronics");
+    }
+}
+
+// Shopping Cart
+class ShoppingCart {
+
+    public void purchaseProduct(Product product, int quantity)
+            throws OutOfStockException {
+
+        product.purchase(quantity);
+    }
+}
+
+// Main Class
+public class project1 {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        Electronics laptop =
+                new Electronics(101, "Laptop", 65000, 5);
+
+        ShoppingCart cart = new ShoppingCart();
+
+        laptop.displayCategory();
+
+        try {
+
+            System.out.print("Enter quantity: ");
+            int qty = sc.nextInt();
+
+            cart.purchaseProduct(laptop, qty);
+
+            System.out.println("Remaining Stock : " + laptop.getStock());
+
+        }
+
+        catch (OutOfStockException e) {
+            System.out.println(e.getMessage());
+        }
+
+        catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
+
+        catch (Exception e) {
+            System.out.println("Unexpected Error");
+        }
+
+        finally {
+            System.out.println("Thank you for shopping!");
         }
 
         sc.close();
